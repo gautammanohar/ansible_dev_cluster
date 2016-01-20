@@ -1,2 +1,7 @@
 # Chef dev cluster
-- mongo
+- Mongodb
+- Mysql
+- Kafka
+- Hadoop2 (MR + Yarn)
+- Spark
+- Hive
