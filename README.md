@@ -1,1 +1,1 @@
-# chef_dev_cluster
+# Chef dev cluster
