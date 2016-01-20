@@ -20,6 +20,9 @@ package node['mongodb']['package_name'] do
 end
 
 # add our custom mongo.conf
+template "/etc/mongod.conf" do
+  source 'mongod.conf.erb'
+end
 
 # start the mongo service
 service "mongod" do 

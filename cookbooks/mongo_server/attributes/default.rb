@@ -1,0 +1,5 @@
+default['mongodb']['config']['bind_ip'] = '0.0.0.0'
+default['mongodb']['package_name'] = 'mongodb-org'
+default['mongodb']['seed_file'] = '/tmp/seed-db.json'
+default['mongodb']['dbname'] = 'data_test'
+default['mongodb']['collection'] = 'data_collection'
