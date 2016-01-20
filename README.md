@@ -1,1 +1,2 @@
 # Chef dev cluster
+- mongo
