@@ -1,0 +1,6 @@
+default['mysql_server']['database']['dbname'] = 'data_test'
+default['mysql_server']['database']['host'] = '127.0.0.1'
+default['mysql_server']['database']['remote_host'] = '%'
+default['mysql_server']['database']['username'] = 'root'
+default['mysql_server']['database']['app']['username'] = 'db_admin'
+default['mysql_server']['database']['seed_file'] ='/tmp/seed-db.sql'

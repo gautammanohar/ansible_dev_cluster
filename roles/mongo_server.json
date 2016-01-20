@@ -1,6 +1,6 @@
 {
-    "name": "mysql_server",
-    "description": "mysql server",
+    "name": "mongo_server",
+    "description": "mongo server",
     "chef_type": "role",
     "json_class": "Chef::Role",
     "default_attributes": {
@@ -8,6 +8,6 @@
     "override_attributes": {
     },
     "run_list": [
-        "recipe[mysql_server]"
+        "recipe[mongo_server]"
     ]
 }
