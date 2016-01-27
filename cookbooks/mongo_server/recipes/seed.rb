@@ -4,12 +4,11 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-# Write schema seed file to filesystem.
-cookbook_file node['mongodb']['seed_file'] do
-  source 'seed-db.json'
-  owner 'root'
-  group 'root'
-  mode '0600'
+# Download schema seed file to filesystem.
+execute 'Download Mongo Test dataset' do
+  command "wget #{node['mongodb']['seed_file_location']} -O #{node['mongodb']['seed_file']}"
+  creates "#{node['mongodb']['seed_file']}"
+  action :run
 end
 
 

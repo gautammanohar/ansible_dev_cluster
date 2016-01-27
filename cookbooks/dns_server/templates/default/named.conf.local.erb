@@ -1,0 +1,16 @@
+zone "<%= @dns['dns_zone'] %>" {
+    type master;
+    file "<%= node['dns']['zone_file_path'] %>"; # zone file path                                           
+    allow-update { key "<%= @dns['dns_zone'] %>"; };
+};
+
+zone "<%= node['dns']['reverse_zone'] %>.in-addr.arpa" {
+    type master;
+    file "<%= node['dns']['reverse_zone_file_path'] %>";  
+};
+
+
+key "<%= @dns['dns_zone'] %>" {
+  algorithm hmac-sha512;
+  secret "<%= @dns['nsupdate_key'] %>";
+};

@@ -1,5 +1,8 @@
 default['mongodb']['config']['bind_ip'] = '0.0.0.0'
 default['mongodb']['package_name'] = 'mongodb-org'
 default['mongodb']['seed_file'] = '/tmp/seed-db.json'
+default['mongodb']['seed_file_location'] = 'https://raw.githubusercontent.com/mongodb/docs-assets/primer-dataset/dataset.json'
+default['mongodb']['init_replset_file'] = '/tmp/init_replset.js'
 default['mongodb']['dbname'] = 'data_test'
 default['mongodb']['collection'] = 'data_collection'
+default['mongodb']['repl_set_name'] = 'rs0'

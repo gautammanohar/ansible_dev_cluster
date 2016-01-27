@@ -1,0 +1,6 @@
+server <%= @dns['dns_hostname'] %>
+debug yes
+zone <%= @dns['dns_zone'] %>.
+update add <%= node.name %>. 86400 A <%= node['ipaddress'] %>
+show
+send

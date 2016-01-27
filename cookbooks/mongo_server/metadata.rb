@@ -4,6 +4,6 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures mongo_server'
 long_description 'Installs/Configures mongo_server'
-version '0.6.0'
+version '0.7.0'
 
 depends 'yum', '>= 3.0'

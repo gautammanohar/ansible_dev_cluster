@@ -1,0 +1,8 @@
+config = { _id: "rs0", members:[
+<% @hostnames.each_with_index do |name, index| %>
+<%= "{ _id : #{index}, host : '#{name}:27017'}," %>
+<% end %> ]
+};
+
+rs.initiate(config);
+rs.status();

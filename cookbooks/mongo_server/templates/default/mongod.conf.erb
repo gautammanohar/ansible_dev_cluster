@@ -33,7 +33,8 @@ net:
 
 #operationProfiling:
 
-#replication:
+replication:
+  replSetName: <%= node['mongodb']['repl_set_name'] %>
 
 #sharding:
 

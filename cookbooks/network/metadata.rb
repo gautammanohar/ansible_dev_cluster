@@ -1,0 +1,7 @@
+name 'network'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures network'
+long_description 'Installs/Configures network'
+version '0.7.0'
