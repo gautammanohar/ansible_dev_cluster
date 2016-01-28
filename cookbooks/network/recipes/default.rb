@@ -16,7 +16,7 @@ template node['network']['eth0_config_path'] do
   variables ({ 
     :dns => dns
   })
-  notifies :restart, 'service[network]'
+  notifies :restart, 'service[network]', :immediately
 end
 
 

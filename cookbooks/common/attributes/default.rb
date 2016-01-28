@@ -1,1 +1,7 @@
 default['common']['bind_utils'] = 'bind-utils'
+default['jre']['package'] = 'jre-8u60-linux-x64.rpm'
+default['jdk']['package'] = 'jdk-8u60-linux-x64.rpm'
+default['jre']['download_header'] = 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+default['jre']['download_url'] = 'http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jre-8u60-linux-x64.rpm'
+default['jdk']['download_header'] = 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+default['jdk']['download_url'] = 'http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.rpm'
