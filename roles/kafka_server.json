@@ -8,6 +8,10 @@
     "override_attributes": {
     },
     "run_list": [
+        "recipe[common]",        
+        "recipe[common::java]", 
+        "recipe[network]",
+        "recipe[network::nsupdate]",
         "recipe[kafka_server]"
     ]
 }

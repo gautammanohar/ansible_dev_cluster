@@ -9,7 +9,7 @@
     },
     "run_list": [
         "recipe[common]",        
-        "recipe[network]",
-        "recipe[dns_server]"
+        "recipe[dns_server]",
+        "recipe[network]"
     ]
 }

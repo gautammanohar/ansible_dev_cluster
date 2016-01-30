@@ -10,7 +10,7 @@ $TTL    86400
      IN      NS      <%= node.name %>.
 
 ; name servers - A records
-ns1.<%= @dns['dns_zone'] %>.          IN      A       <%= node['ipaddress'] %>
+<%= node.name %>.          IN      A       <%= node['ipaddress'] %>
 
 ; <%= node['dns']['network_cidr'] %> - A records
 
