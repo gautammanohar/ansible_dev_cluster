@@ -1,9 +1,9 @@
 {
   "id": "cluster",
   "brokers": {
-    "172.30.0.219":{"id":"1","hostname":"broker-1.bigstream.example.com"},
-    "172.30.0.218":{"id":"2","hostname":"broker-2.bigstream.example.com"},
-    "172.30.0.217":{"id":"3","hostname":"broker-3.bigstream.example.com"}
+    "172.30.0.184":{"id":"0","hostname":"broker-1.bigstream.example.com"},
+    "172.30.0.183":{"id":"1","hostname":"broker-2.bigstream.example.com"},
+    "172.30.0.185":{"id":"2","hostname":"broker-3.bigstream.example.com"}
   }
 
 }

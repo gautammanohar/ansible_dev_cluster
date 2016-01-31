@@ -19,8 +19,15 @@ execute 'extract apache kafka' do
   not_if { File.exists?("/opt/#{node['kafka_server']['tarball_folder']}/bin/kafka-configs.sh") }
 end
 
-# Create the data dirs
+# Create the data dir for zookeeper
+directory node['kafka_server']['zookeeper_data_dir'] do
+  action :create
+end
 
+# Create directories for kafka
+directory node['kafka_server']['kafka_log_dir'] do
+  action :create
+end
 
 # Get the Cluster databag
 cluster = data_bag_item('kafka','cluster')
@@ -37,7 +44,9 @@ template node['kafka_server']['zookeeper_config_path'] do
 end
 
 # Add the zookeeper my id file
-
+file "#{node['kafka_server']['zookeeper_data_dir']}myid" do
+  content broker_id
+end
 
 # Start Zoo keeper
 execute 'start zookeeper' do
@@ -56,9 +65,10 @@ template node['kafka_server']['config_path'] do
   })
 end
 
-# Start Kafka server
-execute 'start kafka' do
-  command "sleep 15; /opt/#{node['kafka_server']['tarball_folder']}/bin/kafka-server-start.sh -daemon config/server.properties"
-  cwd "/opt/#{node['kafka_server']['tarball_folder']}/"
-  action :run
-end
+# Start Kafka server 
+#[ THIS MUST BE DONE ONLY AFTER ALL ZOOKEEPERS HAVE BEEN STARTED ]
+#execute 'start kafka' do
+#  command "sleep 15; /opt/#{node['kafka_server']['tarball_folder']}/bin/kafka-server-start.sh -daemon config/server.properties"
+#  cwd "/opt/#{node['kafka_server']['tarball_folder']}/"
+#  action :run
+#end
