@@ -21,7 +21,7 @@ end
 # Import the zabbix db schema and data
 execute 'initialize database' do
   command "mysql -h #{node['zabbix_server']['database']['host']} -u#{node['zabbix_server']['database']['zabbix_user']} -p#{node['zabbix_server']['database']['zabbix_pass']} -D #{node['zabbix_server']['database']['dbname']} < #{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}/#{node['zabbix_server']['mysql_schema_path']}"
-  not_if  "mysql -u#{node['zabbix_server']['database']['zabbix_user']} -p#{node['zabbix_server']['database']['zabbix_pass']} -D #{node['zabbix_server']['database']['dbname']} -e 'describe #{node['zabbix_server']['database']['check_table']};'"
+  not_if  "mysql -h #{node['zabbix_server']['database']['host']} -u#{node['zabbix_server']['database']['zabbix_user']} -p#{node['zabbix_server']['database']['zabbix_pass']} -D #{node['zabbix_server']['database']['dbname']} -e 'describe #{node['zabbix_server']['database']['check_table']};'"
 end
 
 
