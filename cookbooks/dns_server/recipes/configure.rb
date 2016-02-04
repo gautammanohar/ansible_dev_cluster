@@ -43,14 +43,9 @@ template node['dns']['reverse_zone_file_path'] do
   })
 end
 
-# Start Service
+# Enable and start service
 service "named" do
-  action :start
-end
-
-# Start on boot
-service "named" do
-  action :enable
+  action [ :enable, :start ]
 end
 
 

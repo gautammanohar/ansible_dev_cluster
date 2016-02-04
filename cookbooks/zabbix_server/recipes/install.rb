@@ -3,59 +3,11 @@
 # Recipe:: install
 #
 
-# Extract Zabbix packages
-execute 'Install Devel Packages' do
-  command 'yum -y groupinstall "Development tools"'
-end
 
-# install mysql-devel
-package 'mysql-devel' do
-  action :install
-end
-
-# install libxml2-devel 
-package 'libxml2-devel' do
-  action :install
-end
-
-# install net-snmp-devel
-package 'net-snmp-devel' do
-  action :install
-end
-
-# install libcurl-devel
-package 'libcurl-devel' do
-  action :install
-end
-
-# install httpd
-package 'httpd' do
-  action :install
-end
-
-# install 
-package 'php' do
-  action :install
-end
-
-# install 
-package 'php-mysql' do
-  action :install
-end
-
-# install php-xmlwriter
-package 'php-xmlwriter' do
-  action :install
-end
-
-# install php-xmlreader
-package 'php-xmlreader' do
-  action :install
-end
-
-# install php-gd 
-package 'php-gd' do
-  action :install
+node['zabbix_server']['base_packages'].each do |p|
+  package p do
+    action :install
+  end
 end
 
 # install yum-utils 
@@ -64,7 +16,7 @@ package 'yum-utils' do
 end
 
 # Enable RHEL optional repo
-execute 'Enable option repo' do
+execute 'Enable optional repo' do
   command 'yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional'
 end
 
@@ -80,15 +32,32 @@ end
 
 # Configure Zabbix server
 execute 'Configure Zabbix server' do
-  command './configure --enable-server --enable-agent --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl --with-libxml2'
+  command './configure --enable-server --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl --with-libxml2'
   cwd "#{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}"
+  not_if { File.exists?("#{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}.txt")}
 end
 
 # Install
 execute 'make install' do
   command 'make install'
   cwd "#{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}"
+  not_if { File.exists?("#{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}.txt")}
 end
+
+# Store the zabbix version file.
+execute 'Store the Zabbix version' do
+  command "touch #{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}.txt"
+  creates "#{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}.txt" 
+  action :run
+end
+
+# At the init script
+template "/etc/init.d/zabbix" do
+  source 'zabbix_server.erb'
+  mode '0755'
+end
+
+
 
 
 
