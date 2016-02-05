@@ -27,10 +27,16 @@ end
 
 # Make Install & more
 execute 'Compile plugin' do
-  command 'make;make install'
+  command 'make'
   cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['plugin_folder']}"
   not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['plugin_folder']}.txt")}
 end
+execute 'Install plugin' do
+  command 'make install'
+  cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['plugin_folder']}"
+  not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['plugin_folder']}.txt")}
+end
+
 
 # Store the plugin version file.
 execute 'Store the Plugin version' do

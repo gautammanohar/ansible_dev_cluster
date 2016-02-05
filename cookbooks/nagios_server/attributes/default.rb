@@ -1,6 +1,7 @@
 default['nagios_server']['user'] = 'nagios'
 default['nagios_server']['user_home'] = '/home/nagios'
-default['nagios_server']['group'] = 'nagcmd'
+default['nagios_server']['group'] = 'nagios'
+default['nagios_server']['command_group'] = 'nagcmd'
 default['nagios_server']['tarball_url'] = 'https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.1.tar.gz'
 default['nagios_server']['tarball_name'] = 'nagios-4.1.1.tar.gz'
 
@@ -22,3 +23,11 @@ default['nagios_server']['base_packages'] = [
                                              'unzip',
                                              'httpd'
                                             ]
+
+default['nagios_server']['make_cmd'] = [
+                                 "make install",
+                                 "make install-commandmode",
+                                 "make install-init",
+                                 "make install-config",
+                                 "make install-webconf"
+                                ]

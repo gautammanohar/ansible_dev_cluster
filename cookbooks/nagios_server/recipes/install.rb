@@ -15,7 +15,6 @@ node['nagios_server']['base_packages'].each do |p|
   end
 end
 
-
 # Download nagios tarball
 execute 'Download Nagios Tarball' do
   command "wget -q #{node['nagios_server']['tarball_url']} -P #{node['nagios_server']['user_home']}"
@@ -37,10 +36,44 @@ execute 'Configure Nagios installtion' do
   not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
 end
 
+# make all
+execute 'make all' do
+  command 'make all'
+  cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}"
+  not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
+end
 
-# Make Install & more
-execute 'Make Install and more' do
-  command 'make install;make install-commandmode;make install-init;make install-config;make install-webconf'
+# make install
+execute 'make install' do
+  command 'make install'
+  cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}"
+  not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
+end
+
+# make install command mode
+execute 'make install-commandmode' do
+  command 'make install-commandmode'
+  cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}"
+  not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
+end
+
+# make install init
+execute 'make install-init' do
+  command 'make install-init'
+  cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}"
+  not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
+end
+
+# make install config
+execute 'make install-config' do
+  command 'make install-config'
+  cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}"
+  not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
+end
+
+# make install webconf
+execute 'make install-webconf' do
+  command 'make install-webconf'
   cwd "#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}"
   not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
 end
