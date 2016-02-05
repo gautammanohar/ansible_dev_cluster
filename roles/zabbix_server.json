@@ -9,8 +9,6 @@
     },
     "run_list": [
         "recipe[common]",        
-        "recipe[network]",
-        "recipe[network::nsupdate]",
         "recipe[zabbix_server]"
     ]
 }

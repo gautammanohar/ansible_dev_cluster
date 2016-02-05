@@ -32,7 +32,7 @@ end
 
 # Configure Zabbix server
 execute 'Configure Zabbix server' do
-  command './configure --enable-server --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl --with-libxml2'
+  command './configure --enable-server --enable-agent --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl --with-libxml2'
   cwd "#{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}"
   not_if { File.exists?("#{node['zabbix_server']['user_home']}/#{node['zabbix_server']['zabbix_folder']}.txt")}
 end

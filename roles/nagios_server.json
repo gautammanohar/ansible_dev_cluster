@@ -1,6 +1,6 @@
 {
-    "name": "mysql_server",
-    "description": "mysql server",
+    "name": "nagios_server",
+    "description": "nagios server",
     "chef_type": "role",
     "json_class": "Chef::Role",
     "default_attributes": {
@@ -9,6 +9,8 @@
     },
     "run_list": [
         "recipe[common]",        
-        "recipe[common::zabbix_agent]"
+        "recipe[network]",
+        "recipe[network::nsupdate]",
+        "recipe[nagios_server]"
     ]
 }
