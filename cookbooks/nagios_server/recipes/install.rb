@@ -78,7 +78,7 @@ execute 'make install-webconf' do
   not_if { File.exists?("#{node['nagios_server']['user_home']}/#{node['nagios_server']['nagios_folder']}.txt")}
 end
 
-group node['nagios_server']['group'] do
+group node['nagios_server']['command_group'] do
   action :modify
   members 'apache'
   append true

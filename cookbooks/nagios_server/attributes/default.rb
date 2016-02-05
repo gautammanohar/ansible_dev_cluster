@@ -17,6 +17,7 @@ default['nagios_server']['nrpe_folder'] = 'nrpe-2.15'
 default['nagios_server']['nagios_folder'] = 'nagios-4.1.1'
 default['nagios_server']['base_packages'] = [
                                              'gcc',
+                                             'php',
                                              'glibc',
                                              'glibc-common',
                                              'gd',
