@@ -9,6 +9,7 @@
     },
     "run_list": [
         "recipe[common]",        
+        "recipe[common::nagios_client]",        
         "recipe[common::java]", 
         "recipe[network]",
         "recipe[network::nsupdate]",

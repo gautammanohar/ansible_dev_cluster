@@ -9,6 +9,10 @@
     },
     "run_list": [
         "recipe[common]",        
-        "recipe[common::zabbix_agent]"
+        "recipe[common::nagios_agent]",
+        "recipe[network]",
+        "recipe[network::nsupdate]",
+        "recipe[mysql_server]"
+
     ]
 }

@@ -1,0 +1,9 @@
+{
+  "id": "environment",
+  "nagios_server_ip": "172.30.0.101",
+  "hosts": {
+    "172.30.0.160" : "ns-1.bigstream.dev.com",
+    "" : "mysql.bigstream.dev.com"
+  }
+
+}

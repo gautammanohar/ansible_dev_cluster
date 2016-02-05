@@ -3,10 +3,6 @@
 # Recipe:: install
 #
 
-# Enable RHEL optional repo
-execute 'Enable optional repo' do
-  command 'yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional'
-end
 
 # Install the base packages
 node['nagios_server']['base_packages'].each do |p|
