@@ -2,4 +2,6 @@
 # Cookbook Name:: hadoop_server
 # Recipe:: default
 #
-# Copyright (c) 2016 The Authors, All Rights Reserved.
+
+include_recipe 'hadoop_server::users'
+include_recipe 'hadoop_server::install'

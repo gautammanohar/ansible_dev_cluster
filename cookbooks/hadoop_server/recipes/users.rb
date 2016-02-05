@@ -15,5 +15,16 @@ user node['hadoop_server']['user'] do
   shell '/bin/bash'
 end
 
-# source the env vars
+# add the env vars
+template "#{node['hadoop_server']['user_home']}/.bashrc" do
+  source 'bashrc.erb'
+  owner node['hadoop_server']['user']
+  group node['hadoop_server']['group']
+end
 
+# source the env vars
+execute 'Source the env variables' do
+  command "exec bash"
+  user node['hadoop_server']['user']
+  group node['hadoop_server']['group']
+end

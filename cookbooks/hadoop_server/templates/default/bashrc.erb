@@ -9,7 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-export HADOOP_COMMON_HOME=$HOME/hadoop
+export JAVA_HOME=/usr/java/jre1.8.0_60
+export HADOOP_COMMON_HOME=<%= node['hadoop_server']['user_home'] %>/<%= node['hadoop_server']['folder'] %>
 export HADOOP_MAPRED_HOME=$HADOOP_COMMON_HOME
 export HADOOP_HDFS_HOME=$HADOOP_COMMON_HOME
 export YARN_HOME=$HADOOP_COMMON_HOME

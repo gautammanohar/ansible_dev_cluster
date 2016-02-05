@@ -1,0 +1,6 @@
+{
+  "id": "cluster",
+  "cluster_name": "Hadoop Cluster",
+  "name_node": "h-master.bigstream.example.com",
+  "slaves": ["h-1.bigstream.example.com","h-2.bigstream.example.com"]
+}
