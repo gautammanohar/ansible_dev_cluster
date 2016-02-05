@@ -13,7 +13,7 @@
 #user_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'db_admin_password', password_secret)
 
 
-# Add a database user.
+# Add a database user (localhost).
 mysql_database_user node['mysql_server']['database']['app']['username'] do
   connection(
     :host => node['mysql_server']['database']['host'],
@@ -25,6 +25,21 @@ mysql_database_user node['mysql_server']['database']['app']['username'] do
   host node['mysql_server']['database']['remote_host']
   action [:create, :grant]
 end
+
+
+# Add a database user (devuser).
+mysql_database_user node['mysql_server']['database']['dev_user'] do
+  connection(
+    :host => node['mysql_server']['database']['host'],
+    :username => node['mysql_server']['database']['username'],
+    :password => node['mysql_server']['database']['root_pass'],
+  )
+  password node['mysql_server']['database']['dev_pass']
+  database_name node['mysql_server']['database']['dbname']
+  host '%'
+  action [:create, :grant]
+end
+
 
 # Write schema seed file to filesystem.
 cookbook_file node['mysql_server']['database']['seed_file'] do

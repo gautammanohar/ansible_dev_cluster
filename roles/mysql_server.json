@@ -9,9 +9,9 @@
     },
     "run_list": [
         "recipe[common]",        
-        "recipe[common::nagios_agent]",
         "recipe[network]",
         "recipe[network::nsupdate]",
+        "recipe[common::nagios_client]",
         "recipe[mysql_server]"
 
     ]

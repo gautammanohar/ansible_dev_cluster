@@ -15,6 +15,7 @@ end
 execute 'Install epel-release' do
   command "rpm -ivh #{node['common']['epel_rpm_name']}"
   cwd "/tmp"
+  not_if "rpm -qa | grep 'epel-release'"
 end
 
 # install nrpe
@@ -37,6 +38,11 @@ template "/etc/nagios/nrpe.cfg" do
   variables ({
     :nagios_server_ip => nagios_server_ip
   })
+end
+
+# nrpe restart
+service "nrpe" do
+  action :restart
 end
 
 

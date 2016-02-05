@@ -19,11 +19,6 @@ package 'wget' do
   action :install
 end
 
-# install epel-realease
-package 'epel-release' do
-  action :install
-end
-
 # Install yum Development package
 execute 'Install Devel Packages' do
   command 'yum -y groupinstall "Development tools"'
