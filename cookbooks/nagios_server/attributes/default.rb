@@ -9,6 +9,11 @@ default['nagios_server']['plugin_url'] = 'http://nagios-plugins.org/download/nag
 default['nagios_server']['plugin_tarball_name'] = 'nagios-plugins-2.1.1.tar.gz'
 default['nagios_server']['plugin_folder'] = 'nagios-plugins-2.1.1'
 
+default['nagios_server']['nrpe_url'] = 'http://downloads.sourceforge.net/project/nagios/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz'
+default['nagios_server']['nrpe_tarball_name'] = 'nrpe-2.15.tar.gz'
+default['nagios_server']['nrpe_folder'] = 'nrpe-2.15'
+
+
 default['nagios_server']['nagios_folder'] = 'nagios-4.1.1'
 default['nagios_server']['base_packages'] = [
                                              'gcc',
