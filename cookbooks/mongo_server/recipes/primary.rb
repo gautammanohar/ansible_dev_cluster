@@ -17,7 +17,7 @@ end
 
 # initiate the replset
 execute 'Initiate replset' do
-  command "mongo --port 27017 #{['mongodb']['init_replset_file']}"
+  command "mongo --port 27017 #{node['mongodb']['init_replset_file']}"
 end
 
 

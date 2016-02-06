@@ -1,6 +1,6 @@
 {
   "id": "cluster",
   "cluster_name": "Hadoop Cluster",
-  "name_node": "h-master.bigstream.example.com",
-  "slaves": ["h-1.bigstream.example.com","h-2.bigstream.example.com"]
+  "name_node": "y-master.bigstream.dev.com",
+  "slaves": ["y-1.bigstream.dev.com","y-2.bigstream.dev.com"]
 }

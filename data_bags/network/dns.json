@@ -2,6 +2,6 @@
   "id": "dns",
   "nsupdate_key": "Wd/lFWVxEbrC51pfjrGoJn2yN7zyeEWymA4ZIHwyXY+db13XQEsRRcUz MQ/GezxZeu1jD579fybNt9aMRB0A0w==",
   "dns_hostname": "ns-1.bigstream.dev.com",
-  "dns_ip": "172.30.0.160",
+  "dns_ip": "172.30.0.132",
   "dns_zone": "bigstream.dev.com"
 }

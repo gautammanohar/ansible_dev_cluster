@@ -12,6 +12,7 @@
         "recipe[common::java]",        
         "recipe[network]",
         "recipe[network::nsupdate]",
+        "recipe[common::nagios_client]",
         "recipe[hadoop_server]"
     ]
 }

@@ -5,19 +5,18 @@
 
 # Download hadoop tarball
 execute 'download hadoop' do
-  command "wget #{node['hadoop_server']['tarball']} -P /tmp/"
-  creates node['hadoop_server']['tarball_path']
+  command "wget #{node['hadoop_server']['tarball']} -P #{node['hadoop_server']['user_home']}"
+  creates "#{node['hadoop_server']['user_home']}/#{node['hadoop_server']['tarball_package']}"
   action :run
   user node['hadoop_server']['user']
   group node['hadoop_server']['group']
-  not_if { File.exists?("#{node['hadoop_server']['tarball_path']}") }
 end
 
 
 # Extract hadoop packages
 execute 'extract hadoop' do
-  command "tar -xzf #{node['hadoop_server']['tarball_package']} -C #{node['hadoop_server']['user_home']}"
-  cwd '/tmp/'
+  command "tar -xzf #{node['hadoop_server']['user_home']}/#{node['hadoop_server']['tarball_package']}"
+  cwd node['hadoop_server']['user_home']
   user node['hadoop_server']['user']
   group node['hadoop_server']['group']
   not_if { File.exists?("#{node['hadoop_server']['user_home']}/#{node['hadoop_server']['folder']}/bin/hadoop") }

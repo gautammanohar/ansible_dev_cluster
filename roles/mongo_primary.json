@@ -8,6 +8,12 @@
     "override_attributes": {
     },
     "run_list": [
-        "recipe[mongo_server::primary]"
+        "recipe[common]",        
+        "recipe[network]",
+        "recipe[network::nsupdate]",
+        "recipe[common::nagios_client]",        
+        "recipe[mongo_server]",
+        "recipe[mongo_server::primary]",
+        "recipe[mongo_server::seed]"
     ]
 }

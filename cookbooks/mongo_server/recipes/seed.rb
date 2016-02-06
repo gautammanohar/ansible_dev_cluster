@@ -14,5 +14,5 @@ end
 
 # import/ seed the mongo db
 execute 'import mongo seed data' do
-  command "mongoimport --db #{node['mongodb']['dbname']} --collection #{node['mongodb']['collection']} --drop --file #{node['mongodb']['seed_file']}"
+  command "sleep10; mongoimport --db #{node['mongodb']['dbname']} --collection #{node['mongodb']['collection']} --drop --file #{node['mongodb']['seed_file']}"
 end

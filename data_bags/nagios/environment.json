@@ -1,9 +1,11 @@
 {
   "id": "environment",
-  "nagios_server_ip": "172.30.0.101",
+  "nagios_server_ip": "172.30.0.133",
   "hosts": {
-    "172.30.0.160" : "ns-1.bigstream.dev.com",
-    "172.30.0.133" : "mysql.bigstream.dev.com"
+    "172.30.0.132" : "ns-1.bigstream.dev.com",
+    "172.30.0.134" : "y-master.bigstream.dev.com",
+    "172.30.0.135" : "y-1.bigstream.dev.com",
+    "172.30.0.223" : "y-2.bigstream.dev.com"
   }
 
 }

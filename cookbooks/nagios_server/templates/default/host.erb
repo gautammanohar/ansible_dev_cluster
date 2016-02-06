@@ -44,7 +44,7 @@ define service {
         use                             generic-service
         host_name                       <%= @hostname %>
         service_description             Disk Space
-        check_command                   check_nrpe!check_disk
+        check_command                   check_nrpe!check_root_disk
         notifications_enabled           0
 }
 

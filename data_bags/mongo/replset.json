@@ -1,4 +1,4 @@
 {
   "id": "replset",
-  "hostnames": ["mongo-1.bigstream.example.com","mongo-2.bigstream.example.com","mongo-3.bigstream.example.com"]
+  "hostnames": ["mongo-1.bigstream.dev.com","mongo-2.bigstream.dev.com","mongo-3.bigstream.dev.com"]
 }

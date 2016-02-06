@@ -52,6 +52,6 @@ cookbook_file node['cassandra_server']['seed_file'] do
   source 'demo_schema.cql'
   owner 'root'
   group 'root'
-  mode '0600'
+  mode '0777'
   only_if { node['ipaddress'] == seed } 
 end
